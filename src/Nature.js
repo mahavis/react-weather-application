@@ -1,7 +1,14 @@
 import React from "react";
+import axios from "axios";
 import "./Nature.css";
 
 export default function Nature() {
+  function handleSubmit(response) {}
+  const apiKey = "87ff24d7eb3707aa3o3e240bt1fdfd01";
+  const city = "The Hague";
+  const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(handleSubmit);
+
   return (
     <div className="Weather p-5 container">
       <form>
