@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
 import "./Nature.css";
 
@@ -6,12 +7,13 @@ export default function Nature(props) {
   const [weatherData, setWeatherData] = useState({ ready: false });
 
   function handleResponse(response) {
+    console.log(response.data);
     setWeatherData({
       ready: true,
       temperature: response.data.temperature.current,
       description: response.data.condition.description,
       wind: response.data.wind.speed,
-      date: "Sunday 11:00",
+      date: new Date(response.data.time * 1000),
       iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
       humidity: response.data.temperature.humidity,
     });
@@ -41,7 +43,9 @@ export default function Nature(props) {
         </form>
         <h1>{props.defaultCity}</h1>
         <ul className="descriptionList">
-          <li>{weatherData.date}</li>
+          <li>
+            <FormattedDate date={weatherData.date} />
+          </li>
           <li className="text-capitalize">{weatherData.description}</li>
         </ul>
         <div className="row mt-3">
@@ -60,7 +64,7 @@ export default function Nature(props) {
           </div>
           <div className="Credentials col-6">
             <ul>
-              <li>Humidity: {weatherData.Humidity}%</li>
+              <li>Humidity: {weatherData.humidity}%</li>
               <li>Wind: {Math.round(weatherData.wind)} km/h</li>
             </ul>
           </div>
