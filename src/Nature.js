@@ -15,7 +15,8 @@ export default function Nature(props) {
       description: response.data.condition.description,
       wind: response.data.wind.speed,
       date: new Date(response.data.time * 1000),
-      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png",
+      icon: response.data.condition.icon_url,
+      iconUrl: `http://shecodes-assets.s3.amazonaws.com/api/weather/${response.data.condition.icon_url}`,
       humidity: response.data.temperature.humidity,
       city: response.data.city,
     });
