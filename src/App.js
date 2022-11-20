@@ -10,7 +10,7 @@ function App() {
           target="_blank"
           rel="noreferrer"
         >
-          {" "}
+          Open-sourced on GitHub{" "}
         </a>{" "}
         and{" "}
         <a
