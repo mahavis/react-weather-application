@@ -1,0 +1,13 @@
+.WeatherForecastData {
+  text-align: center;
+}
+
+.temperatureMin {
+  opacity: 0.6;
+  margin-left: 5px;
+}
+
+.WeatherForecastData img {
+  height: 40px;
+  width: 40px;
+}

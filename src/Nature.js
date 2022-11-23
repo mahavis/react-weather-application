@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
 import "./Nature.css";
+import WeatherForecastData from "./WeatherForecastData";
 
 export default function Nature(props) {
   const [city, setCity] = useState(props.defaultCity);
@@ -15,6 +16,7 @@ export default function Nature(props) {
       description: response.data.condition.description,
       wind: response.data.wind.speed,
       date: new Date(response.data.time * 1000),
+      coordinates: response.data.coordinates,
       icon: response.data.condition.icon,
       iconUrl: response.data.condition.icon_url,
       humidity: response.data.temperature.humidity,
@@ -60,6 +62,10 @@ export default function Nature(props) {
           </div>
         </form>
         <WeatherInfo data={weatherData} />
+        <WeatherForecastData
+          symbol={weatherData.iconUrl}
+          coordinates={weatherData.coordinates}
+        />
       </div>
     );
   } else {
