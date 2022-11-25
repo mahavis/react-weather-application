@@ -8,7 +8,7 @@ function App() {
         <a
           href="https://github.com/mahavis/react-weather-application"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           Open-sourced on GitHub{" "}
         </a>{" "}
@@ -16,7 +16,7 @@ function App() {
         <a
           href="https://ornate-arithmetic-0f2598.netlify.app"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           hosted on Netlify
         </a>
